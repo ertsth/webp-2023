@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="expression" readonly />
+      <input type="text" id="result" readonly />
+    </div>
+    <div>
+      <button onclick="handleClick('7')">7</button>
+      <button onclick="handleClick('8')">8</button>
+      <button onclick="handleClick('9')">9</button>
+      <button onclick="handleClick('/')">/</button>
+    </div>
+    <div>
+      <button onclick="handleClick('4')">4</button>
+      <button onclick="handleClick('5')">5</button>
+      <button onclick="handleClick('6')">6</button>
+      <button onclick="handleClick('*')">*</button>
+    </div>
+    <div>
+      <button onclick="handleClick('1')">1</button>
+      <button onclick="handleClick('2')">2</button>
+      <button onclick="handleClick('3')">3</button>
+      <button onclick="handleClick('-')">-</button>
+    </div>
+    <div>
+      <button onclick="handleClick('0')">0</button>
+      <button onclick="handleClick('.')">.</button>
+      <button onclick="clearExpression()">C</button>
+      <button onclick="handleClick('+')">+</button>
+    </div>
+    <div>
+      <button onclick="calculateResult()">=</button>
+    </div>
+    <script>
+      let expression = "";
+      let result = "";
+      const expressionElement = document.getElementById("expression");
+      const resultElement = document.getElementById("result");
+
+      function handleClick(value) {
+        expression += value;
+        expressionElement.value = expression;
+      }
+
+      function calculateResult() {
+        try {
+            result = eval(expression);
+            resultElement.value = result;
+        } catch (error) {
+            alert("Error: " + error.message);
+        }
+      }
+
+      function clearExpression() {
+        expression = "";
+        result = "";
+        expressionElement.value = expression;
+        resultElement.value = result;
+      }
+    </script>
+  </body>
+</html>
