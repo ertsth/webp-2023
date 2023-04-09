@@ -1,0 +1,24 @@
+список фільмів обраного жанру;
+
+SELECT film.name
+FROM film
+INNER JOIN film_genre ON film.ID_FILM = film_genre.FID_Film
+INNER JOIN genre ON film_genre.FID_Genre = genre.ID_Genre
+WHERE genre.title = 'Drama';
+
+список фільмів з обраним актором;
+
+SELECT film.name
+FROM film
+INNER JOIN film_actor ON film.ID_FILM = film_actor.FID_Film
+INNER JOIN actor ON film_actor.FID_Actor = actor.ID_Actor
+WHERE actor.name = 'Ryan Gosling';
+
+список фільмів за вказаний часовий інтервал.
+
+SELECT name
+FROM film
+WHERE date BETWEEN '2009-04-03' AND '2017-10-03';
+
+
+dsaf sdf
